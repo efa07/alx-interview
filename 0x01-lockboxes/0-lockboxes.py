@@ -37,7 +37,6 @@ def canUnlockAll(boxes):
             # Check if the key is within the valid range and the box has not been opened yet
             if key < n and not opened[key]:
                 opened[key] = True
-
                 dfs(key)
 
     dfs(0)
