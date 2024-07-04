@@ -20,7 +20,6 @@ def canUnlockAll(boxes):
 
     # Number of boxes
     n = len(boxes)
-
     # Initialize a list to keep track of which boxes have been opened
     opened = [False] * n
 
@@ -38,6 +37,7 @@ def canUnlockAll(boxes):
             # Check if the key is within the valid range and the box has not been opened yet
             if key < n and not opened[key]:
                 opened[key] = True
+
                 dfs(key)
 
     dfs(0)
