@@ -1,3 +1,8 @@
+#!/usr/bin/python3
+'''The minimum operations coding challenge.
+'''
+
+
 def minOperations(n):
     """
     Calculate the minimum number of operations needed
