@@ -19,13 +19,17 @@ def minOperations(n):
     if n <= 1:
         return 0
 
-    operations = 0  # Initialize the total number of operations
-    factor = 2  # Start with the smallest prime factor
-
-    while n > 1:
-        while n % factor == 0:
-            operations += factor
-            n //= factor
-        factor += 1
-
+    next = 'H'
+    body = 'H'
+    operations = 0
+    while (len(body) < n):
+        if n % len(body) == 0:
+            operations += 2
+            next = body
+            body += body
+        else:
+            operations += 1
+            body += next
+    if len(body) != n:
+        return 0
     return operations
