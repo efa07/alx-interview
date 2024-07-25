@@ -11,6 +11,7 @@ def count_leading_ones(byte):
         mask >>= 1
     return leading_ones
 
+
 def validUTF8(data):
     """
     Determines if a given data set represents a valid UTF-8 encoding.
