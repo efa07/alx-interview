@@ -21,18 +21,17 @@ def makeChange(coins, total):
     - For each coin, update the dp array to ensure the fewest coins are
       selected for each total.
     """
-    if total < 0:
-        return -1
-    if total == 0:
+    if total <= 0:
         return 0
-    if not coins:
-        return -1
-
-    dp = [float('inf')] * (total + 1)
-    dp[0] = 0
-
-    for coin in coins:
-        for i in range(coin, total + 1):
-            dp[i] = min(dp[i], dp[i - coin] + 1)
-
-    return dp[total] if dp[total] != float('inf') else -1
+    check = 0
+    temp = 0
+    coins.sort(reverse=True)
+    for i in coins:
+        while check < total:
+            check += i
+            temp += 1
+        if check == total:
+            return temp
+        check -= i
+        temp -= 1
+    return -1
