@@ -21,11 +21,13 @@ def makeChange(coins, total):
     - For each coin, update the dp array to ensure the fewest coins are
       selected for each total.
     """
-
+    if total < 0:
+        return -1
     if total == 0:
         return 0
+    if not coins:
+        return -1
 
-    # Initialize dp array with a large number
     dp = [float('inf')] * (total + 1)
     dp[0] = 0
 
@@ -33,5 +35,4 @@ def makeChange(coins, total):
         for i in range(coin, total + 1):
             dp[i] = min(dp[i], dp[i - coin] + 1)
 
-    # If dp[total] is still infinity, return -1 (total can't be made)
     return dp[total] if dp[total] != float('inf') else -1
