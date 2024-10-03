@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Module for Prime Game"""
 
+
 def isWinner(x, nums):
     """
     This module contains the implementation of the prime game.
